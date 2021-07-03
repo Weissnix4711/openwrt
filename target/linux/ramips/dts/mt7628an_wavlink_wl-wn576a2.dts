@@ -6,8 +6,8 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	compatible = "wavlink,wl-wn576a2", "silvercrest,swv-733-b1", "mediatek,mt7628an-soc";
-	model = "WAVLINK WL-WN576A2";
+	compatible = "wavlink,wl-wn576a2", "mediatek,mt7628an-soc";
+	model = "Wavlink WL-WN576A2";
 
 	aliases {
 		led-boot = &led_wps;
@@ -31,16 +31,16 @@
 			linux,code = <KEY_WPS_BUTTON>;
 		};
 
-		repeatermode {
-			label = "repeatermode";
-			gpios = <&gpio 41 GPIO_ACTIVE_HIGH>;
+		ap {
+			label = "ap";
+			gpios = <&gpio 41 GPIO_ACTIVE_LOW>;
 			linux,code = <BTN_0>;
 			linux,input-type = <EV_SW>;
 		};
 
-		accesspointmode {
-			label = "accesspointmode";
-			gpios = <&gpio 42 GPIO_ACTIVE_HIGH>;
+		repeater {
+			label = "repeater";
+			gpios = <&gpio 42 GPIO_ACTIVE_LOW>;
 			linux,code = <BTN_1>;
 			linux,input-type = <EV_SW>;
 		};
@@ -74,8 +74,8 @@
 			gpios = <&gpio 40 GPIO_ACTIVE_LOW>;
 		};
 
-		wan {
-			label = "blue:wan";
+		lan {
+			label = "blue:lan";
 			gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
 		};
 
@@ -88,7 +88,8 @@
 
 &state_default {
 	gpio {
-		groups = "i2c", "wdt", "p0led_an", "p3led_an", "p4led_an";
+		groups = "i2c", "i2s", "wdt", "wled_an", "p0led_an", "p1led_an",
+			"p2led_an", "p3led_an", "p4led_an", "refclk", "gpio";
 		function = "gpio";
 	};
 };

@@ -730,7 +730,7 @@ define Device/wavlink_wl-wn576a2
   DEVICE_MODEL := WL-WN576A2
   DEVICE_ALT0_VENDOR := Silvercrest
   DEVICE_ALT0_MODEL := SWV 733 B1
-  DEVICE_PACKAGES := kmod-mt76x0e rssileds
+  DEVICE_PACKAGES := kmod-mt76x0e
 endef
 TARGET_DEVICES += wavlink_wl-wn576a2
 
